@@ -1,0 +1,2 @@
+It is a declarative, GitOps continuous delivery tool for Kubernetes.
+GitOps is a mechanism that can pull the latest code and application configuration from the last known Git commit version and deploy it directly into Kubernetes resources.
