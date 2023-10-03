@@ -2,3 +2,7 @@ It is a declarative, GitOps continuous delivery tool for Kubernetes.
 GitOps is a mechanism that can pull the latest code and application configuration from the last known Git commit version and deploy it directly into Kubernetes resources.
 ArgoCD is a Kubernetes tool that allows you to automate your deployment process and manage your applications using GitOps.
 It manages the deployment of application and infrastructure.
+The changes has to be pull OR push mechanism. So if any changes happened at Kubernetes YAML manifest in git SCM.
+So if we want make any changes to the resources in cluster by manually will not be happened because of the GitOps tool like ArgoCD will manage those changes first in git repository and later those changes will be deployed by ArgoCD only.
+So it continously watch the Kubernetes cluster and it will keep a track of the all resources.
+The advantages like Security, Versioning (track of changes).
