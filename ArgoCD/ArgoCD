@@ -6,8 +6,33 @@ The changes has to be pull OR push mechanism. So if any changes happened at Kube
 So if we want make any changes to the resources in cluster by manually will not be happened because of the GitOps tool like ArgoCD will manage those changes first in git repository and later those changes will be deployed by ArgoCD only.
 So it continously watch the Kubernetes cluster and it will keep a track of the all resources.
 The advantages like Security, Versioning (track of changes).
-
-                                    git ------> ArgoCD ------> Kubernetes
-[Architecture]
-                   
-                   git --- Repo Server                              
+                                        Git <------ ArgoCD ------> Kubernetes
+[Architecture]                   
+                                                   User (CLI/UI)
+                                                        |
+                                                        |
+                                                        |
+      Git---Repository Server                 Dex----API Server                       Application Controller---Kubernetes
+                 |                                      |                                           |       
+                 |                                      |                                           | 
+                 |                                      |                                           |
+                 ------------------------------------------------------------------------------------
+It has to maintain state between git and Kubernetes.
+The major Components are 
+● API Server
+It take all the request from the Users (CLI/UI).
+It exposes the API consumed by the Web UI, CLI, and CI/CD systems.
+The application management and status reporting.
+The repository and cluster credential management (stored as K8s secrets).
+The authentication and auth delegation to external identity providers.
+The listener/forwarder for Git webhook events.
+● Repository Server
+The repository server is an internal service which maintains a local cache of the SCM Git repository holding the application manifests.
+The following responsibilities: repository URL, revision (commit, tag, branch), application path, template specific settings: parameters, helm values.yaml
+● Application Controller
+The application controller is a Kubernetes controller which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the repo).
+● Dex
+It is used for any kind of authentication to external identity providers like GitHub, SAML and others.
+● Redis
+It is used for cache the data.
+For some reason the Application Controller service will be down, once it comes up it need to have information.
