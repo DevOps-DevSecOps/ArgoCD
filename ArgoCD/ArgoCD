@@ -32,6 +32,7 @@ The following responsibilities: repository URL, revision (commit, tag, branch), 
 ● Application Controller
 The application controller is a Kubernetes controller which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the repo).
 ● Dex
+It is used to authentication for ArgoCD UI login. 
 It is used for any kind of authentication to external identity providers like GitHub, SAML and others.
 ● Redis
 It is used for cache the data.
