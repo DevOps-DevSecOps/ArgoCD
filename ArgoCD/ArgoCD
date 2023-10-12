@@ -34,6 +34,7 @@ The application controller is a Kubernetes controller which continuously monitor
 ● Dex
 It is used to authentication for ArgoCD UI login. 
 It is used for any kind of authentication to external identity providers like GitHub, SAML and others.
+We can integrate with external service identity providers like GitHub, SSO, SAML, Outlook, ..., etc to authentication for ArgoCD UI login.
 ● Redis
 It is used for cache the data.
 For some reason the Application Controller service will be down, once it comes up it need to have information.
