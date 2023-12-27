@@ -1,1 +1,11 @@
+[Cluster]
+argocd cluster list
+argocd cluster list -o json
+
+[Login]
+argocd login DNS_NAME
+argocd login DNS_NAME --username USER_NAME
+argocd login DNS_NAME --username USER_NAME --password PASSWORD
 argocd login IP_ADDRESS:PORT_NO
+argocd login IP_ADDRESS:PORT_NO --username USER_NAME
+argocd login IP_ADDRESS:PORT_NO --username USER_NAME --password PASSWORD
