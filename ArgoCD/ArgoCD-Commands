@@ -1,6 +1,7 @@
 [Cluster]
 argocd cluster list
 argocd cluster list -o json
+argocd cluster add CONTEXT_NAME --name CLUSTER_NAME
 
 [Login]
 argocd login DNS_NAME
